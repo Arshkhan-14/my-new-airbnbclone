@@ -122,15 +122,19 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate);
 
-app.get("/", (req, res) => {
-   res.render("listings/index.ejs");
-});
+// app.get("/", (req, res) => {
+//    res.render("listings/index.ejs");
+// });
 
 
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",userRouter);
 
+
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 
 app.all('/*path/',(req,res,next)=>{
