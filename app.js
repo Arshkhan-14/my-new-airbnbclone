@@ -123,7 +123,7 @@ app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate);
 
 app.get("/", (req, res) => {
-   res.render("index.ejs");
+   res.render("listings/index.ejs");
 });
 
 
